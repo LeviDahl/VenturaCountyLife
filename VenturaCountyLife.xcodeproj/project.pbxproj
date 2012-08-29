@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B61053F15EE58DA00192E0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61053E15EE58DA00192E0A /* UIKit.framework */; };
+		9B61054115EE58DA00192E0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61054015EE58DA00192E0A /* Foundation.framework */; };
+		9B61054315EE58DA00192E0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61054215EE58DA00192E0A /* CoreGraphics.framework */; };
+		9B61054915EE58DA00192E0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B61054715EE58DA00192E0A /* InfoPlist.strings */; };
+		9B61054B15EE58DA00192E0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61054A15EE58DA00192E0A /* main.m */; };
+		9B61054F15EE58DA00192E0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61054E15EE58DA00192E0A /* AppDelegate.m */; };
+		9B61055215EE58DB00192E0A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61055015EE58DB00192E0A /* MainStoryboard_iPhone.storyboard */; };
+		9B61055515EE58DB00192E0A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61055315EE58DB00192E0A /* MainStoryboard_iPad.storyboard */; };
+		9B61055815EE58DB00192E0A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61055715EE58DB00192E0A /* FirstViewController.m */; };
+		9B61055A15EE58DB00192E0A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B61055915EE58DB00192E0A /* first.png */; };
+		9B61055C15EE58DB00192E0A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B61055B15EE58DB00192E0A /* first@2x.png */; };
+		9B61055F15EE58DB00192E0A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61055E15EE58DB00192E0A /* SecondViewController.m */; };
+		9B61056115EE58DB00192E0A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B61056015EE58DB00192E0A /* second.png */; };
+		9B61056315EE58DB00192E0A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B61056215EE58DB00192E0A /* second@2x.png */; };
+		9B61056B15EE58DB00192E0A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61056A15EE58DB00192E0A /* SenTestingKit.framework */; };
+		9B61056C15EE58DB00192E0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61053E15EE58DA00192E0A /* UIKit.framework */; };
+		9B61056D15EE58DB00192E0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61054015EE58DA00192E0A /* Foundation.framework */; };
+		9B61057515EE58DB00192E0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B61057315EE58DB00192E0A /* InfoPlist.strings */; };
+		9B61057815EE58DB00192E0A /* VenturaCountyLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B61056E15EE58DB00192E0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B61053115EE58DA00192E0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B61053915EE58DA00192E0A;
+			remoteInfo = VenturaCountyLife;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B61053A15EE58DA00192E0A /* VenturaCountyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenturaCountyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B61053E15EE58DA00192E0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9B61054015EE58DA00192E0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9B61054215EE58DA00192E0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9B61054615EE58DA00192E0A /* VenturaCountyLife-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VenturaCountyLife-Info.plist"; sourceTree = "<group>"; };
+		9B61054815EE58DA00192E0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B61054A15EE58DA00192E0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B61054C15EE58DA00192E0A /* VenturaCountyLife-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VenturaCountyLife-Prefix.pch"; sourceTree = "<group>"; };
+		9B61054D15EE58DA00192E0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B61054E15EE58DA00192E0A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B61055115EE58DB00192E0A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		9B61055415EE58DB00192E0A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		9B61055615EE58DB00192E0A /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		9B61055715EE58DB00192E0A /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		9B61055915EE58DB00192E0A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		9B61055B15EE58DB00192E0A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		9B61055D15EE58DB00192E0A /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		9B61055E15EE58DB00192E0A /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		9B61056015EE58DB00192E0A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		9B61056215EE58DB00192E0A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		9B61056915EE58DB00192E0A /* VenturaCountyLifeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenturaCountyLifeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B61056A15EE58DB00192E0A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9B61057215EE58DB00192E0A /* VenturaCountyLifeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VenturaCountyLifeTests-Info.plist"; sourceTree = "<group>"; };
+		9B61057415EE58DB00192E0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B61057615EE58DB00192E0A /* VenturaCountyLifeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenturaCountyLifeTests.h; sourceTree = "<group>"; };
+		9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenturaCountyLifeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B61053715EE58DA00192E0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61053F15EE58DA00192E0A /* UIKit.framework in Frameworks */,
+				9B61054115EE58DA00192E0A /* Foundation.framework in Frameworks */,
+				9B61054315EE58DA00192E0A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B61056515EE58DB00192E0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61056B15EE58DB00192E0A /* SenTestingKit.framework in Frameworks */,
+				9B61056C15EE58DB00192E0A /* UIKit.framework in Frameworks */,
+				9B61056D15EE58DB00192E0A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B61052F15EE58DA00192E0A = {
+			isa = PBXGroup;
+			children = (
+				9B61054415EE58DA00192E0A /* VenturaCountyLife */,
+				9B61057015EE58DB00192E0A /* VenturaCountyLifeTests */,
+				9B61053D15EE58DA00192E0A /* Frameworks */,
+				9B61053B15EE58DA00192E0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B61053B15EE58DA00192E0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B61053A15EE58DA00192E0A /* VenturaCountyLife.app */,
+				9B61056915EE58DB00192E0A /* VenturaCountyLifeTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B61053D15EE58DA00192E0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B61053E15EE58DA00192E0A /* UIKit.framework */,
+				9B61054015EE58DA00192E0A /* Foundation.framework */,
+				9B61054215EE58DA00192E0A /* CoreGraphics.framework */,
+				9B61056A15EE58DB00192E0A /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B61054415EE58DA00192E0A /* VenturaCountyLife */ = {
+			isa = PBXGroup;
+			children = (
+				9B61054D15EE58DA00192E0A /* AppDelegate.h */,
+				9B61054E15EE58DA00192E0A /* AppDelegate.m */,
+				9B61055015EE58DB00192E0A /* MainStoryboard_iPhone.storyboard */,
+				9B61055315EE58DB00192E0A /* MainStoryboard_iPad.storyboard */,
+				9B61055615EE58DB00192E0A /* FirstViewController.h */,
+				9B61055715EE58DB00192E0A /* FirstViewController.m */,
+				9B61055915EE58DB00192E0A /* first.png */,
+				9B61055B15EE58DB00192E0A /* first@2x.png */,
+				9B61055D15EE58DB00192E0A /* SecondViewController.h */,
+				9B61055E15EE58DB00192E0A /* SecondViewController.m */,
+				9B61056015EE58DB00192E0A /* second.png */,
+				9B61056215EE58DB00192E0A /* second@2x.png */,
+				9B61054515EE58DA00192E0A /* Supporting Files */,
+			);
+			path = VenturaCountyLife;
+			sourceTree = "<group>";
+		};
+		9B61054515EE58DA00192E0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B61054615EE58DA00192E0A /* VenturaCountyLife-Info.plist */,
+				9B61054715EE58DA00192E0A /* InfoPlist.strings */,
+				9B61054A15EE58DA00192E0A /* main.m */,
+				9B61054C15EE58DA00192E0A /* VenturaCountyLife-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B61057015EE58DB00192E0A /* VenturaCountyLifeTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B61057615EE58DB00192E0A /* VenturaCountyLifeTests.h */,
+				9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */,
+				9B61057115EE58DB00192E0A /* Supporting Files */,
+			);
+			path = VenturaCountyLifeTests;
+			sourceTree = "<group>";
+		};
+		9B61057115EE58DB00192E0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B61057215EE58DB00192E0A /* VenturaCountyLifeTests-Info.plist */,
+				9B61057315EE58DB00192E0A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B61053915EE58DA00192E0A /* VenturaCountyLife */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B61057B15EE58DB00192E0A /* Build configuration list for PBXNativeTarget "VenturaCountyLife" */;
+			buildPhases = (
+				9B61053615EE58DA00192E0A /* Sources */,
+				9B61053715EE58DA00192E0A /* Frameworks */,
+				9B61053815EE58DA00192E0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VenturaCountyLife;
+			productName = VenturaCountyLife;
+			productReference = 9B61053A15EE58DA00192E0A /* VenturaCountyLife.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B61056815EE58DB00192E0A /* VenturaCountyLifeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B61057E15EE58DB00192E0A /* Build configuration list for PBXNativeTarget "VenturaCountyLifeTests" */;
+			buildPhases = (
+				9B61056415EE58DB00192E0A /* Sources */,
+				9B61056515EE58DB00192E0A /* Frameworks */,
+				9B61056615EE58DB00192E0A /* Resources */,
+				9B61056715EE58DB00192E0A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B61056F15EE58DB00192E0A /* PBXTargetDependency */,
+			);
+			name = VenturaCountyLifeTests;
+			productName = VenturaCountyLifeTests;
+			productReference = 9B61056915EE58DB00192E0A /* VenturaCountyLifeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B61053115EE58DA00192E0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = LeviMac;
+			};
+			buildConfigurationList = 9B61053415EE58DA00192E0A /* Build configuration list for PBXProject "VenturaCountyLife" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9B61052F15EE58DA00192E0A;
+			productRefGroup = 9B61053B15EE58DA00192E0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B61053915EE58DA00192E0A /* VenturaCountyLife */,
+				9B61056815EE58DB00192E0A /* VenturaCountyLifeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B61053815EE58DA00192E0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61054915EE58DA00192E0A /* InfoPlist.strings in Resources */,
+				9B61055215EE58DB00192E0A /* MainStoryboard_iPhone.storyboard in Resources */,
+				9B61055515EE58DB00192E0A /* MainStoryboard_iPad.storyboard in Resources */,
+				9B61055A15EE58DB00192E0A /* first.png in Resources */,
+				9B61055C15EE58DB00192E0A /* first@2x.png in Resources */,
+				9B61056115EE58DB00192E0A /* second.png in Resources */,
+				9B61056315EE58DB00192E0A /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B61056615EE58DB00192E0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61057515EE58DB00192E0A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B61056715EE58DB00192E0A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B61053615EE58DA00192E0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61054B15EE58DA00192E0A /* main.m in Sources */,
+				9B61054F15EE58DA00192E0A /* AppDelegate.m in Sources */,
+				9B61055815EE58DB00192E0A /* FirstViewController.m in Sources */,
+				9B61055F15EE58DB00192E0A /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B61056415EE58DB00192E0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B61057815EE58DB00192E0A /* VenturaCountyLifeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B61056F15EE58DB00192E0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B61053915EE58DA00192E0A /* VenturaCountyLife */;
+			targetProxy = 9B61056E15EE58DB00192E0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B61054715EE58DA00192E0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B61054815EE58DA00192E0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9B61055015EE58DB00192E0A /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B61055115EE58DB00192E0A /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		9B61055315EE58DB00192E0A /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B61055415EE58DB00192E0A /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		9B61057315EE58DB00192E0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B61057415EE58DB00192E0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B61057915EE58DB00192E0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B61057A15EE58DB00192E0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B61057C15EE58DB00192E0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
+				INFOPLIST_FILE = "VenturaCountyLife/VenturaCountyLife-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9B61057D15EE58DB00192E0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
+				INFOPLIST_FILE = "VenturaCountyLife/VenturaCountyLife-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9B61057F15EE58DB00192E0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VenturaCountyLife.app/VenturaCountyLife";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
+				INFOPLIST_FILE = "VenturaCountyLifeTests/VenturaCountyLifeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9B61058015EE58DB00192E0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VenturaCountyLife.app/VenturaCountyLife";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
+				INFOPLIST_FILE = "VenturaCountyLifeTests/VenturaCountyLifeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B61053415EE58DA00192E0A /* Build configuration list for PBXProject "VenturaCountyLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B61057915EE58DB00192E0A /* Debug */,
+				9B61057A15EE58DB00192E0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B61057B15EE58DB00192E0A /* Build configuration list for PBXNativeTarget "VenturaCountyLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B61057C15EE58DB00192E0A /* Debug */,
+				9B61057D15EE58DB00192E0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9B61057E15EE58DB00192E0A /* Build configuration list for PBXNativeTarget "VenturaCountyLifeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B61057F15EE58DB00192E0A /* Debug */,
+				9B61058015EE58DB00192E0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B61053115EE58DA00192E0A /* Project object */;
+}
