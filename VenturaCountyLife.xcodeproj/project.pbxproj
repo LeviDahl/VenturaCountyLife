@@ -26,6 +26,7 @@
 		9B61056D15EE58DB00192E0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B61054015EE58DA00192E0A /* Foundation.framework */; };
 		9B61057515EE58DB00192E0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B61057315EE58DB00192E0A /* InfoPlist.strings */; };
 		9B61057815EE58DB00192E0A /* VenturaCountyLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */; };
+		9B61058415EE5D8E00192E0A /* FeaturedNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61058215EE5D8E00192E0A /* FeaturedNib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		9B61057415EE58DB00192E0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B61057615EE58DB00192E0A /* VenturaCountyLifeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenturaCountyLifeTests.h; sourceTree = "<group>"; };
 		9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenturaCountyLifeTests.m; sourceTree = "<group>"; };
+		9B61058115EE5D8E00192E0A /* FeaturedNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNib.h; sourceTree = "<group>"; };
+		9B61058215EE5D8E00192E0A /* FeaturedNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,18 +127,14 @@
 		9B61054415EE58DA00192E0A /* VenturaCountyLife */ = {
 			isa = PBXGroup;
 			children = (
-				9B61054D15EE58DA00192E0A /* AppDelegate.h */,
-				9B61054E15EE58DA00192E0A /* AppDelegate.m */,
-				9B61055015EE58DB00192E0A /* MainStoryboard_iPhone.storyboard */,
-				9B61055315EE58DB00192E0A /* MainStoryboard_iPad.storyboard */,
+				9B61058715EE5DBB00192E0A /* Main Files */,
+				9B61058615EE5DA500192E0A /* View Controllers */,
 				9B61055615EE58DB00192E0A /* FirstViewController.h */,
 				9B61055715EE58DB00192E0A /* FirstViewController.m */,
-				9B61055915EE58DB00192E0A /* first.png */,
-				9B61055B15EE58DB00192E0A /* first@2x.png */,
 				9B61055D15EE58DB00192E0A /* SecondViewController.h */,
 				9B61055E15EE58DB00192E0A /* SecondViewController.m */,
-				9B61056015EE58DB00192E0A /* second.png */,
-				9B61056215EE58DB00192E0A /* second@2x.png */,
+				9B61058115EE5D8E00192E0A /* FeaturedNib.h */,
+				9B61058215EE5D8E00192E0A /* FeaturedNib.m */,
 				9B61054515EE58DA00192E0A /* Supporting Files */,
 			);
 			path = VenturaCountyLife;
@@ -144,6 +143,10 @@
 		9B61054515EE58DA00192E0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B61055915EE58DB00192E0A /* first.png */,
+				9B61055B15EE58DB00192E0A /* first@2x.png */,
+				9B61056015EE58DB00192E0A /* second.png */,
+				9B61056215EE58DB00192E0A /* second@2x.png */,
 				9B61054615EE58DA00192E0A /* VenturaCountyLife-Info.plist */,
 				9B61054715EE58DA00192E0A /* InfoPlist.strings */,
 				9B61054A15EE58DA00192E0A /* main.m */,
@@ -169,6 +172,24 @@
 				9B61057315EE58DB00192E0A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B61058615EE5DA500192E0A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9B61058715EE5DBB00192E0A /* Main Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B61055015EE58DB00192E0A /* MainStoryboard_iPhone.storyboard */,
+				9B61055315EE58DB00192E0A /* MainStoryboard_iPad.storyboard */,
+				9B61054D15EE58DA00192E0A /* AppDelegate.h */,
+				9B61054E15EE58DA00192E0A /* AppDelegate.m */,
+			);
+			name = "Main Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +308,7 @@
 				9B61054F15EE58DA00192E0A /* AppDelegate.m in Sources */,
 				9B61055815EE58DB00192E0A /* FirstViewController.m in Sources */,
 				9B61055F15EE58DB00192E0A /* SecondViewController.m in Sources */,
+				9B61058415EE5D8E00192E0A /* FeaturedNib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
