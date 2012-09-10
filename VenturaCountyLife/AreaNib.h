@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "AreaTableCell.h"
+#import "DetailViewController.h"
 @interface AreaNib : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+@property (nonatomic, retain) NSArray *extractedData;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *tableCell;
+-(void)reloadJSONData;
 @end

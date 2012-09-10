@@ -14,7 +14,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        secondLabel.lineBreakMode = UILineBreakModeWordWrap;
+        mainLabel.lineBreakMode = UILineBreakModeWordWrap;
+        
     }
     return self;
 }

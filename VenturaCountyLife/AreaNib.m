@@ -7,13 +7,14 @@
 //
 
 #import "AreaNib.h"
-
+#import "MKNetworkKit/MKNetworkOperation.h"
+#import "SBJSON/SBJson.h"
 @interface AreaNib ()
 
 @end
 
 @implementation AreaNib
-@synthesize tableCell, myTableView;
+@synthesize tableCell, myTableView, extractedData;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +27,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Event Areas";
+    [self reloadJSONData];
+    
+      
+}
+
+-(void)reloadJSONData {
+    
+    
 	// Do any additional setup after loading the view.
+    //init the http engine, supply the web host
+    //and also a dictionary with http headers you want to send
+    MKNetworkEngine* engine = [[MKNetworkEngine alloc]
+                               initWithHostName:@"www.venturacountylife.com" customHeaderFields:nil];
+    
+    //request parameters
+    //these would be your GET or POST variables
+    NSMutableDictionary* params = [NSMutableDictionary
+                                   dictionaryWithObjectsAndKeys: nil];
+    
+    //create operation with the host relative path, the params
+    //also method (GET,POST,HEAD,etc) and whether you want SSL or not
+    MKNetworkOperation* op = [engine
+                              operationWithPath:@"cake2/events/maintitles.json" params: params
+                              httpMethod:@"GET" ssl:NO];
+    
+    //set completion and error blocks
+    [op onCompletion:^(MKNetworkOperation *completedOperation) {
+        NSString *responseData = [NSString stringWithFormat:@"%@",[op responseString] ];
+  
+        SBJsonParser *parser =  [[SBJsonParser alloc] init];
+        NSError *error;
+        NSDictionary *parsedData =  [parser objectWithString:responseData error:&error];
+        if (error)
+        {NSLog(@"%@", error);}
+    
+        extractedData = [parsedData valueForKey:@"rests"];
+         [myTableView reloadData];
+    } onError:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    //add to the http queue and the request is sent
+    [engine enqueueOperation: op];
 }
 
 - (void)viewDidUnload
@@ -46,19 +90,24 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return 10;
+    return [extractedData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"tableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
+   AreaTableCell *cell = (AreaTableCell*)[tableView dequeueReusableCellWithIdentifier:@"tableCell"];
+    NSDictionary *eachevent = [[extractedData objectAtIndex:indexPath.row] objectForKey:@"Event"];
+    NSString *eventname = [eachevent objectForKey:@"name"];
+    NSString *month = [eachevent objectForKey:@"month"];
+    NSString *day = [eachevent objectForKey:@"day"];
+    NSLog(@"%@", eventname);
+    cell.mainLabel.text = eventname;
+    cell.secondLabel.text = [NSString stringWithFormat:@"%@-%@", month, day];
     
     return cell;
 }
@@ -107,12 +156,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
+    
+     DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+     
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+     
 }
 
 @end
