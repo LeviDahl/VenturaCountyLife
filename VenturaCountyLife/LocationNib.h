@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
+@interface LocationNib : UIViewController <MKMapViewDelegate>
 
-@interface LocationNib : UIViewController
+@property (nonatomic, retain) IBOutlet MKMapView *myMapView;
+@property (nonatomic, retain) IBOutlet UIButton *dateButton;
+@property (nonatomic, retain) IBOutlet UIDatePicker *mypickerview;
+@property (nonatomic, retain) NSDictionary *extractedData;
+@property (nonatomic, retain) NSString *datebutton;
 
+-(IBAction)PickDate:(id)sender;
 @end

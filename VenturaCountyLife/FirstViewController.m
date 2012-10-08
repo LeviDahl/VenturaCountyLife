@@ -13,7 +13,7 @@
 @end
 
 @implementation FirstViewController
-
+@synthesize mySearchBar;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,7 +25,11 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.text = nil;
+    [searchBar resignFirstResponder];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

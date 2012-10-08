@@ -50,7 +50,7 @@
     //create operation with the host relative path, the params
     //also method (GET,POST,HEAD,etc) and whether you want SSL or not
     MKNetworkOperation* op = [engine
-                              operationWithPath:@"cake2/events/maintitles.json" params: params
+                              operationWithPath:@"/events/maintitles.json" params: params
                               httpMethod:@"GET" ssl:NO];
     
     //set completion and error blocks
@@ -87,7 +87,7 @@
 {
 
     // Return the number of sections.
-    return 1;
+    return 3;
 }
 
 
@@ -100,15 +100,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   AreaTableCell *cell = (AreaTableCell*)[tableView dequeueReusableCellWithIdentifier:@"tableCell"];
+  NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    AreaTableCell *cell = (AreaTableCell*)[tableView dequeueReusableCellWithIdentifier:@"tableCell"];
     NSDictionary *eachevent = [[extractedData objectAtIndex:indexPath.row] objectForKey:@"Event"];
     NSString *eventname = [eachevent objectForKey:@"name"];
-    NSString *month = [eachevent objectForKey:@"month"];
-    NSString *day = [eachevent objectForKey:@"day"];
+    [outputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *date =[outputFormatter dateFromString:[eachevent objectForKey:@"date"]];
+    NSLog(@"%@", date);
     NSLog(@"%@", eventname);
+     [outputFormatter setDateFormat:@"MM-dd"];
+      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.mainLabel.text = eventname;
-    cell.secondLabel.text = [NSString stringWithFormat:@"%@-%@", month, day];
     
+    
+    cell.secondLabel.text = [outputFormatter stringFromDate:date];
     return cell;
 }
 
@@ -157,8 +162,11 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
+    [self.myTableView deselectRowAtIndexPath:[self.myTableView indexPathForSelectedRow] animated:YES];
+
      DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
-     
+    NSDictionary *eachevent = [[extractedData objectAtIndex:indexPath.row] objectForKey:@"Event"];
+    detailViewController.detailid = [eachevent objectForKey:@"id" ];
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      

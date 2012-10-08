@@ -47,6 +47,9 @@
 		9B61057515EE58DB00192E0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B61057315EE58DB00192E0A /* InfoPlist.strings */; };
 		9B61057815EE58DB00192E0A /* VenturaCountyLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */; };
 		9B61058415EE5D8E00192E0A /* FeaturedNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B61058215EE5D8E00192E0A /* FeaturedNib.m */; };
+		9B68B62C161A76DB00A0409E /* camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B68B62B161A76DB00A0409E /* camera_icon.png */; };
+		9B7041F1162235E3004BF60C /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7041F0162235E3004BF60C /* MapAnnotation.m */; };
+		9B7041F3162251A1004BF60C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7041F2162251A1004BF60C /* CoreLocation.framework */; };
 		9B86FD2515F6B85B00D936D1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B86FD2415F6B85B00D936D1 /* Security.framework */; };
 		9B86FD4915F6C5D600D936D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B86FD4815F6C5D600D936D1 /* QuartzCore.framework */; };
 		9BD30B9715FD62E800774E41 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD30B7F15FD62E800774E41 /* NSObject+SBJson.m */; };
@@ -62,6 +65,10 @@
 		9BD30BA115FD62E800774E41 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD30B9415FD62E800774E41 /* SBJsonUTF8Stream.m */; };
 		9BD30BA215FD62E800774E41 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD30B9615FD62E800774E41 /* SBJsonWriter.m */; };
 		9BD30BA915FE5E8C00774E41 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD30BA815FE5E8C00774E41 /* DetailViewController.m */; };
+		9BD613F915FFB48000F1B2C9 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD613F815FFB48000F1B2C9 /* DetailCell.m */; };
+		9BEA8F49161104A4001A67BD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEA8F48161104A4001A67BD /* Default-568h@2x.png */; };
+		9BEA8FAF16122D65001A67BD /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BEA8FA816122D64001A67BD /* TapkuLibrary.bundle */; };
+		9BEA8FB816122D84001A67BD /* libTapkuLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEA8FB316122D65001A67BD /* libTapkuLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9B61053915EE58DA00192E0A;
 			remoteInfo = VenturaCountyLife;
+		};
+		9BEA8FB216122D65001A67BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = TapkuLibrary;
+		};
+		9BEA8FB416122D65001A67BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B45DDF1134C736600D24C1A;
+			remoteInfo = LogicTests;
+		};
+		9BEA8FB616122D7A001A67BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TapkuLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -135,6 +163,10 @@
 		9B61057715EE58DB00192E0A /* VenturaCountyLifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenturaCountyLifeTests.m; sourceTree = "<group>"; };
 		9B61058115EE5D8E00192E0A /* FeaturedNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedNib.h; sourceTree = "<group>"; };
 		9B61058215EE5D8E00192E0A /* FeaturedNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedNib.m; sourceTree = "<group>"; };
+		9B68B62B161A76DB00A0409E /* camera_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon.png; path = "../../../Desktop/App Stuff/camera_icon.png"; sourceTree = "<group>"; };
+		9B7041EF162235E2004BF60C /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		9B7041F0162235E3004BF60C /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		9B7041F2162251A1004BF60C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9B86FD2415F6B85B00D936D1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9B86FD4815F6C5D600D936D1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BD30B7E15FD62E800774E41 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -164,6 +196,11 @@
 		9BD30B9615FD62E800774E41 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		9BD30BA715FE5E8C00774E41 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9BD30BA815FE5E8C00774E41 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		9BD613F715FFB48000F1B2C9 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		9BD613F815FFB48000F1B2C9 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		9BEA8F48161104A4001A67BD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9BEA8FA816122D64001A67BD /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../../../Downloads/tapku3/tapkulibrary/src/TapkuLibrary.bundle; sourceTree = "<group>"; };
+		9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TapkuLibrary.xcodeproj; path = ../../../Downloads/tapku3/tapkulibrary/src/TapkuLibrary.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7041F3162251A1004BF60C /* CoreLocation.framework in Frameworks */,
+				9BEA8FB816122D84001A67BD /* libTapkuLibrary.a in Frameworks */,
 				9B86FD4915F6C5D600D936D1 /* QuartzCore.framework in Frameworks */,
 				9B86FD2515F6B85B00D936D1 /* Security.framework in Frameworks */,
 				9B29E8A115F4B52700D62EA9 /* libz.dylib in Frameworks */,
@@ -200,6 +239,8 @@
 		9B29E87915F4B1AE00D62EA9 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				9BEA8FA816122D64001A67BD /* TapkuLibrary.bundle */,
+				9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */,
 				9BD30B7D15FD62E800774E41 /* SBJSON */,
 				9B29E8B315F4B9D300D62EA9 /* MKNetworkKit */,
 			);
@@ -249,12 +290,7 @@
 		9B61052F15EE58DA00192E0A = {
 			isa = PBXGroup;
 			children = (
-				9B86FD4815F6C5D600D936D1 /* QuartzCore.framework */,
-				9B86FD2415F6B85B00D936D1 /* Security.framework */,
-				9B29E8A015F4B52700D62EA9 /* libz.dylib */,
-				9B29E89E15F4B50300D62EA9 /* MobileCoreServices.framework */,
-				9B29E89C15F4B4FC00D62EA9 /* SystemConfiguration.framework */,
-				9B29E89A15F4B4EE00D62EA9 /* CFNetwork.framework */,
+				9BEA8F48161104A4001A67BD /* Default-568h@2x.png */,
 				9B61054415EE58DA00192E0A /* VenturaCountyLife */,
 				9B61057015EE58DB00192E0A /* VenturaCountyLifeTests */,
 				9B61053D15EE58DA00192E0A /* Frameworks */,
@@ -274,6 +310,13 @@
 		9B61053D15EE58DA00192E0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B7041F2162251A1004BF60C /* CoreLocation.framework */,
+				9B86FD4815F6C5D600D936D1 /* QuartzCore.framework */,
+				9B86FD2415F6B85B00D936D1 /* Security.framework */,
+				9B29E8A015F4B52700D62EA9 /* libz.dylib */,
+				9B29E89E15F4B50300D62EA9 /* MobileCoreServices.framework */,
+				9B29E89C15F4B4FC00D62EA9 /* SystemConfiguration.framework */,
+				9B29E89A15F4B4EE00D62EA9 /* CFNetwork.framework */,
 				9B3D880615F02587003441DA /* MapKit.framework */,
 				9B61053E15EE58DA00192E0A /* UIKit.framework */,
 				9B61054015EE58DA00192E0A /* Foundation.framework */,
@@ -297,6 +340,7 @@
 		9B61054515EE58DA00192E0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B68B62B161A76DB00A0409E /* camera_icon.png */,
 				9B3D87FF15F01672003441DA /* 83-calendar.png */,
 				9B3D87FD15F0165A003441DA /* 85-trophy.png */,
 				9B3D87FA15F01545003441DA /* 06-magnify.png */,
@@ -343,12 +387,16 @@
 				9B61058215EE5D8E00192E0A /* FeaturedNib.m */,
 				9B3D880315F016BF003441DA /* LocationNib.h */,
 				9B3D880415F016BF003441DA /* LocationNib.m */,
+				9B7041EF162235E2004BF60C /* MapAnnotation.h */,
+				9B7041F0162235E3004BF60C /* MapAnnotation.m */,
 				9B29E86A15F4AA3900D62EA9 /* AreaNib.h */,
 				9B29E86B15F4AA3900D62EA9 /* AreaNib.m */,
-				9B29E87515F4AF2D00D62EA9 /* AreaTableCell.h */,
 				9B29E87615F4AF2D00D62EA9 /* AreaTableCell.m */,
+				9B29E87515F4AF2D00D62EA9 /* AreaTableCell.h */,
 				9BD30BA715FE5E8C00774E41 /* DetailViewController.h */,
 				9BD30BA815FE5E8C00774E41 /* DetailViewController.m */,
+				9BD613F715FFB48000F1B2C9 /* DetailCell.h */,
+				9BD613F815FFB48000F1B2C9 /* DetailCell.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -396,6 +444,15 @@
 			path = SBJSON;
 			sourceTree = "<group>";
 		};
+		9BEA8FAA16122D64001A67BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BEA8FB316122D65001A67BD /* libTapkuLibrary.a */,
+				9BEA8FB516122D65001A67BD /* LogicTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,6 +467,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9BEA8FB716122D7A001A67BD /* PBXTargetDependency */,
 			);
 			name = VenturaCountyLife;
 			productName = VenturaCountyLife;
@@ -454,6 +512,12 @@
 			mainGroup = 9B61052F15EE58DA00192E0A;
 			productRefGroup = 9B61053B15EE58DA00192E0A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9BEA8FAA16122D64001A67BD /* Products */;
+					ProjectRef = 9BEA8FA916122D64001A67BD /* TapkuLibrary.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9B61053915EE58DA00192E0A /* VenturaCountyLife */,
@@ -461,6 +525,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9BEA8FB316122D65001A67BD /* libTapkuLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTapkuLibrary.a;
+			remoteRef = 9BEA8FB216122D65001A67BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BEA8FB516122D65001A67BD /* LogicTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LogicTests.octest;
+			remoteRef = 9BEA8FB416122D65001A67BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9B61053815EE58DA00192E0A /* Resources */ = {
@@ -478,6 +559,9 @@
 				9B3D87FE15F0165A003441DA /* 85-trophy.png in Resources */,
 				9B3D880015F01672003441DA /* 83-calendar.png in Resources */,
 				9B3D880215F0168E003441DA /* 74-location.png in Resources */,
+				9BEA8F49161104A4001A67BD /* Default-568h@2x.png in Resources */,
+				9BEA8FAF16122D65001A67BD /* TapkuLibrary.bundle in Resources */,
+				9B68B62C161A76DB00A0409E /* camera_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +625,8 @@
 				9BD30BA115FD62E800774E41 /* SBJsonUTF8Stream.m in Sources */,
 				9BD30BA215FD62E800774E41 /* SBJsonWriter.m in Sources */,
 				9BD30BA915FE5E8C00774E41 /* DetailViewController.m in Sources */,
+				9BD613F915FFB48000F1B2C9 /* DetailCell.m in Sources */,
+				9B7041F1162235E3004BF60C /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +645,11 @@
 			isa = PBXTargetDependency;
 			target = 9B61053915EE58DA00192E0A /* VenturaCountyLife */;
 			targetProxy = 9B61056E15EE58DB00192E0A /* PBXContainerItemProxy */;
+		};
+		9BEA8FB716122D7A001A67BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TapkuLibrary;
+			targetProxy = 9BEA8FB616122D7A001A67BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -658,8 +749,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
-				HEADER_SEARCH_PATHS = /;
+				HEADER_SEARCH_PATHS = (
+					/Users/levimac/Downloads/tapku3/tapkulibrary/src/,
+					/,
+				);
 				INFOPLIST_FILE = "VenturaCountyLife/VenturaCountyLife-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -670,8 +765,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VenturaCountyLife/VenturaCountyLife-Prefix.pch";
-				HEADER_SEARCH_PATHS = /;
+				HEADER_SEARCH_PATHS = (
+					/Users/levimac/Downloads/tapku3/tapkulibrary/src/,
+					/,
+				);
 				INFOPLIST_FILE = "VenturaCountyLife/VenturaCountyLife-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

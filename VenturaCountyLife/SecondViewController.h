@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SecondViewController : UIViewController
-
+#import <TapkuLibrary/TapkuLibrary.h>
+@interface SecondViewController : UIViewController <TKCalendarMonthViewDataSource, TKCalendarMonthViewDelegate> {
+    TKCalendarMonthView *calendar;
+}
+@property (nonatomic, retain) TKCalendarMonthView *calendar;
 @end
