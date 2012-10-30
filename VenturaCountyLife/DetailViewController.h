@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <iAd/iAd.h>
 @interface DetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSString *detailid;
 }
@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSDictionary *extractedData;
 @property (nonatomic, retain) NSArray *linedata;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
-
+@property (nonatomic, retain) IBOutlet UIImageView *detailimage;
+@property (nonatomic, retain) ADBannerView *adView;
 @end

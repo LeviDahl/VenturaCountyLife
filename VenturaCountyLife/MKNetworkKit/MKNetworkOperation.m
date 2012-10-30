@@ -525,7 +525,7 @@
 
 -(void) setUploadStream:(NSInputStream*) inputStream {
   
-#warning Method not tested yet.
+// Method not tested yet.
   self.request.HTTPBodyStream = inputStream;
 }
 
@@ -764,7 +764,7 @@
   }];
   
   if (postLength >= 1)
-    [self.request setValue:[NSString stringWithFormat:@"%lu", postLength] forHTTPHeaderField:@"content-length"];
+    [self.request setValue:[NSString stringWithFormat:@"%u", postLength] forHTTPHeaderField:@"content-length"];
   
   [body appendData: [[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:self.stringEncoding]];
   
@@ -954,7 +954,7 @@
       
       NSData *certData = [[NSData alloc] initWithContentsOfFile:self.clientCertificate];
       
-#warning method not implemented. Don't use client certicate authentication for now.
+// method not implemented. Don't use client certicate authentication for now.
       SecIdentityRef myIdentity = nil;  // ???
       
       SecCertificateRef myCert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)certData);
@@ -968,7 +968,7 @@
       [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
     }
     else if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-#warning method not tested. proceed at your own risk
+// method not tested. proceed at your own risk
       SecTrustRef serverTrust = [[challenge protectionSpace] serverTrust];
       SecTrustResultType result;
       SecTrustEvaluate(serverTrust, &result);
@@ -1262,6 +1262,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
   
   for(MKNKResponseBlock responseBlock in self.responseBlocks)
     responseBlock(self);
+    self.responseBlocks = nil;
 }
 
 -(void) showLocalNotification {

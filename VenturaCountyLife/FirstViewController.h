@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController <UISearchBarDelegate>
+@interface FirstViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (nonatomic, retain) IBOutlet UISearchBar *mySearchBar;
+@property (nonatomic, retain) NSDictionary *extractedData;
+@property (nonatomic, retain) IBOutlet UITableView *searchtable;
+
 @end

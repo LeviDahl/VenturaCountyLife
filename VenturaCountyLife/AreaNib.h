@@ -11,6 +11,8 @@
 #import "DetailViewController.h"
 @interface AreaNib : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, retain) NSArray *extractedData;
+@property (nonatomic, retain) NSArray *headerData;
+@property (nonatomic, retain) NSMutableArray *totalAreas;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *tableCell;
 -(void)reloadJSONData;

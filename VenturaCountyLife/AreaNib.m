@@ -14,7 +14,7 @@
 @end
 
 @implementation AreaNib
-@synthesize tableCell, myTableView, extractedData;
+@synthesize tableCell, myTableView, extractedData, headerData, totalAreas;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,18 +28,33 @@
 {
     [super viewDidLoad];
     self.title = @"Event Areas";
+    self.navigationController.tabBarItem.title = @"Areas";
     [self reloadJSONData];
+    totalAreas = [[NSMutableArray alloc] init];
+
     
       
 }
-
+-(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section {
+UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width, 40)];
+UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
+    [headerView addSubview:headerLabel];
+    headerLabel.backgroundColor = [UIColor blueColor];
+    headerLabel.textColor = [UIColor whiteColor];
+       headerLabel.text = [headerData objectAtIndex:section];
+    return headerView;
+}
+- (BOOL)tableView:(UITableView *)tableView canCollapseSection:(NSInteger)section
+{
+    return YES;
+}
 -(void)reloadJSONData {
     
     
 	// Do any additional setup after loading the view.
     //init the http engine, supply the web host
     //and also a dictionary with http headers you want to send
-    MKNetworkEngine* engine = [[MKNetworkEngine alloc]
+     MKNetworkEngine* engine = [[MKNetworkEngine alloc]
                                initWithHostName:@"www.venturacountylife.com" customHeaderFields:nil];
     
     //request parameters
@@ -49,22 +64,34 @@
     
     //create operation with the host relative path, the params
     //also method (GET,POST,HEAD,etc) and whether you want SSL or not
-    MKNetworkOperation* op = [engine
+     MKNetworkOperation* op = [engine
                               operationWithPath:@"/events/maintitles.json" params: params
                               httpMethod:@"GET" ssl:NO];
     
     //set completion and error blocks
     [op onCompletion:^(MKNetworkOperation *completedOperation) {
-        NSString *responseData = [NSString stringWithFormat:@"%@",[op responseString] ];
-  
+       NSString *responseData = [NSString stringWithFormat:@"%@",[op responseString]];
         SBJsonParser *parser =  [[SBJsonParser alloc] init];
         NSError *error;
         NSDictionary *parsedData =  [parser objectWithString:responseData error:&error];
         if (error)
         {NSLog(@"%@", error);}
     
-        extractedData = [parsedData valueForKey:@"rests"];
-         [myTableView reloadData];
+       extractedData = [parsedData valueForKey:@"rests"];
+        headerData = [[extractedData valueForKey:@"Event"] valueForKeyPath:@"@distinctUnionOfObjects.placename"];
+        NSArray *array = [extractedData valueForKey:@"Event"];
+              for (int i = 0; i < [headerData count]; i++)
+        {
+        NSPredicate *bPredicate =
+            [NSPredicate predicateWithFormat:@"placename == %@", [headerData objectAtIndex:i]];
+        NSArray *beginWithB =
+            [array filteredArrayUsingPredicate:bPredicate];
+            
+            __block NSDictionary *item = [NSDictionary dictionaryWithObject:beginWithB forKey:@"data"];
+            [totalAreas addObject:item];
+            
+        }
+                 [myTableView reloadData];
     } onError:^(NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -87,36 +114,40 @@
 {
 
     // Return the number of sections.
-    return 3;
+    return [[[extractedData valueForKey:@"Event"] valueForKeyPath:@"@distinctUnionOfObjects.placename"] count];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSDictionary *dictionary = [totalAreas objectAtIndex:section];
+    
+    NSArray *array = [dictionary objectForKey:@"data"];
+    NSLog(@"arraycount%i", [array count]);
+    return [array count];
+    
 
-    // Return the number of rows in the section.
-    return [extractedData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     AreaTableCell *cell = (AreaTableCell*)[tableView dequeueReusableCellWithIdentifier:@"tableCell"];
-    NSDictionary *eachevent = [[extractedData objectAtIndex:indexPath.row] objectForKey:@"Event"];
-    NSString *eventname = [eachevent objectForKey:@"name"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NSDictionary *dictionary = [totalAreas objectAtIndex:indexPath.section];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    NSString *areaname = [[array objectAtIndex:indexPath.row] valueForKey:@"name"];
+    NSString *date = [[array objectAtIndex:indexPath.row] valueForKey:@"date"];
     [outputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date =[outputFormatter dateFromString:[eachevent objectForKey:@"date"]];
-    NSLog(@"%@", date);
-    NSLog(@"%@", eventname);
-     [outputFormatter setDateFormat:@"MM-dd"];
-      cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.mainLabel.text = eventname;
-    
-    
-    cell.secondLabel.text = [outputFormatter stringFromDate:date];
+    NSDate *dates =[outputFormatter dateFromString:date];
+    [outputFormatter setDateFormat:@"MMMM dd"];
+    cell.mainLabel.text = areaname;
+    cell.secondLabel.text = [outputFormatter stringFromDate:dates];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 44;
+}
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,11 +196,16 @@
     [self.myTableView deselectRowAtIndexPath:[self.myTableView indexPathForSelectedRow] animated:YES];
 
      DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    NSDictionary *eachevent = [[extractedData objectAtIndex:indexPath.row] objectForKey:@"Event"];
-    detailViewController.detailid = [eachevent objectForKey:@"id" ];
+       NSDictionary *dictionary = [totalAreas objectAtIndex:indexPath.section];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    NSString *areaid = [[array objectAtIndex:indexPath.row] valueForKey:@"id"];
+    detailViewController.detailid = areaid;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 @end

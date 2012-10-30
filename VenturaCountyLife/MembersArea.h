@@ -1,13 +1,13 @@
 //
-//  FeaturedNib.h
+//  MembersArea.h
 //  VenturaCountyLife
 //
-//  Created by LeviMac on 8/29/12.
+//  Created by LeviMac on 10/30/12.
 //  Copyright (c) 2012 LeviMac. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface FeaturedNib : UIViewController
+@interface MembersArea : UIViewController
 
 @end

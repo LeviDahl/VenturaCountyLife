@@ -16,7 +16,7 @@
 
 @implementation LocationNib
 BOOL firstRun;
-@synthesize myMapView, dateButton, mypickerview, extractedData;
+@synthesize myMapView, dateButton, mypickerview, extractedData, toolbar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,7 +30,7 @@ BOOL firstRun;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+   [self.navigationController setNavigationBarHidden:YES animated:NO];
     if (myMapView.userLocation.location.horizontalAccuracy  < 10) {
         CLLocationCoordinate2D location;
         location.latitude = 34.2819;
@@ -45,6 +45,8 @@ BOOL firstRun;
 }
 - (void)viewDidAppear:(BOOL)animated
 {
+   
+    if (firstRun == NO){
     if (myMapView.userLocation.location.horizontalAccuracy  < 10) {
         CLLocationCoordinate2D location;
         location.latitude = 34.2819;
@@ -54,9 +56,11 @@ BOOL firstRun;
         [myMapView setRegion:viewRegion animated:YES];
     
     }
-    
+    }
 }
-
+-(void)viewWillAppear:(BOOL)animated {
+     [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 
 - (void)populateData {
     
@@ -75,6 +79,11 @@ BOOL firstRun;
    
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    if (annotation == myMapView.userLocation)
+    {
+        return nil;
+    }
+    else{
     static NSString *identifier = @"MapAnnotation";
     
     
@@ -87,6 +96,7 @@ BOOL firstRun;
         //here we use a nice image instead of the default pins
     }
     return annotationView;
+    }
 }
 
 
@@ -105,6 +115,7 @@ BOOL firstRun;
                      dispatch_async(dispatch_get_main_queue(),^ {
                          NSLog(@"%@", placemarks);
                          if (placemarks.count == 0) {
+                           
                              UIAlertView *alert = [[UIAlertView alloc] init] ;
                              alert.title = @"No places were found.";
                              [alert addButtonWithTitle:@"OK"];
@@ -127,7 +138,11 @@ BOOL firstRun;
     // Release any retained subviews of the main view.
 }
 -(void)reloadJSONData {
-    [mypickerview setHidden:YES];
+    [mypickerview removeFromSuperview];
+    [toolbar removeFromSuperview];
+    for (id<MKAnnotation> annotation in myMapView.annotations) {
+        [myMapView removeAnnotation:annotation];
+    }
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"MM-dd"];
 
@@ -148,12 +163,14 @@ BOOL firstRun;
     NSString *JSONUrl = [[NSString alloc] init];
     if (!firstRun ) {
    JSONUrl = [NSString stringWithFormat:@"events/mapviews/%@.json", [outputFormatter stringFromDate:mypickerview.date]];
-        dateButton.titleLabel.text = [outputFormatter stringFromDate:mypickerview.date];
+        [outputFormatter setDateFormat:@"MMMM dd"];
+        [dateButton setTitle:[outputFormatter stringFromDate:mypickerview.date] forState:UIControlStateNormal];
 
     }
     else{
+         [outputFormatter setDateFormat:@"MM-dd"];
          JSONUrl = [NSString stringWithFormat:@"events/mapviews/%@.json", [outputFormatter stringFromDate:[NSDate date]]];
-         dateButton.titleLabel.text = @"Today";
+        [dateButton setTitle:@"Today" forState:UIControlStateNormal];
     }
     NSLog(@"date%@", JSONUrl);
     MKNetworkOperation* op = [engine
@@ -170,10 +187,20 @@ BOOL firstRun;
         if (error)
         {NSLog(@"error%@", error);}
         extractedData = [parsedData valueForKey:@"dates"];
+        NSString *message = [[NSString alloc] init];
        if([extractedData count] == 0)
        {
-           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Events" message:@"Sorry, No Events for that date. Please Try Again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+           if (firstRun)
+           {
+               message = @"Sorry, no events for today. Please choose another date.";
+           }
+           else
+           {
+                message = @"Sorry, no events for this date. Please choose another date.";
+           }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Events" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
            [alert show];
+               
        }
        else{
         [self populateData];
@@ -191,18 +218,28 @@ BOOL firstRun;
 
   
 -(IBAction)PickDate:(id)sender {
-    mypickerview = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 232, 320, 200)];
-       	mypickerview.date = [NSDate date];
+    mypickerview = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 195, 320, 200)];
+    mypickerview.date = [NSDate date];
     mypickerview.datePickerMode = UIDatePickerModeDate;
-    mypickerview.hidden = NO;
+    
+   
     mypickerview.date = [NSDate date];
     
-    [mypickerview addTarget:self
-                   action:@selector(reloadJSONData)
-         forControlEvents:UIControlEventValueChanged];
-    firstRun = NO;
+       firstRun = NO;
     [self.view addSubview:mypickerview];
+     toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 151.0, 320.0, 44.0)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(reloadJSONData)];
     
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    toolbar.tintColor = [UIColor darkGrayColor];
+    [toolbar setTranslucent:YES];
+    [toolbarItems addObject:flexibleSpaceLeft];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    [self.view addSubview:toolbar];
 }
 
 

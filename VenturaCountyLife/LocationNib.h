@@ -13,9 +13,10 @@
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 @property (nonatomic, retain) IBOutlet UIButton *dateButton;
-@property (nonatomic, retain) IBOutlet UIDatePicker *mypickerview;
+@property (nonatomic, retain) UIDatePicker *mypickerview;
 @property (nonatomic, retain) NSDictionary *extractedData;
 @property (nonatomic, retain) NSString *datebutton;
+@property (nonatomic, retain) UIToolbar *toolbar;
 
--(IBAction)PickDate:(id)sender;
+
 @end

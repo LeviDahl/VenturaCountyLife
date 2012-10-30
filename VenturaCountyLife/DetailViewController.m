@@ -10,12 +10,15 @@
 #import "MKNetworkKit/MKNetworkKit.h"
 #import "SBJSON/SBJson.h"
 #import "DetailCell.h"
+#import "VenueArtistView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <iAd/iAd.h>
 @interface DetailViewController ()
 
 @end
 
 @implementation DetailViewController
-@synthesize detailcost, detaildate, detaildesc, detailid, detailname, detailtime, extractedData, linedata, myTableView;
+@synthesize detailcost, detaildate, detaildesc, detailid, detailname, detailtime, extractedData, linedata, myTableView, detailimage, adView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,26 +33,40 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     myTableView.tableFooterView = [UIView new];
-    myTableView.tableFooterView.backgroundColor = [UIColor grayColor];
-
+    adView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    adView.requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierPortrait];
+    adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+    CGRect adFrame = adView.frame;
+    adFrame.origin.y = self.view.frame.size.height-self.tabBarController.tabBar.frame.size.height-self.navigationController.navigationBar.frame.size.height-adView.frame.size.height;
+    adView.frame = adFrame;
+    [self.view addSubview:adView];
     [self reloadJSONData];
     
 
 }
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    adView.hidden = YES;
+}
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+	adView.hidden = NO;
+}
 - (void)populateData {
     NSDictionary *data = [extractedData objectForKey:@"Event"];
    detailname.text = [data objectForKey:@"name"];
-    self.title = @"Detail View";
-   
-    detailtime.text = [data objectForKey:@"address"];
+     self.navigationItem.title = @"Event Detail";
+    detailtime.text = [NSString stringWithFormat:@"%@, %@",[data objectForKey:@"address"], [data objectForKey:@"city"]];
      NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *date =[outputFormatter dateFromString:[data objectForKey:@"date"]];
-     [outputFormatter setDateFormat:@"MMMM-dd"];
+     [outputFormatter setDateFormat:@"MMMM dd"];
     detaildesc.text = [outputFormatter stringFromDate:date];
     NSLog(@"%@test", [[extractedData objectForKey:@"Event"] objectForKey:@"name"]);
          [outputFormatter setDateFormat:@"hh:mm a"];
      detaildate.text = [outputFormatter stringFromDate:date];
+    [detailimage setImageWithURL:[NSString stringWithFormat:@"http://www.venturacountylife.com/img/app/%@.jpg", [data objectForKey:@"id"]] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
+    
 [myTableView reloadData];
 }
 - (void)viewDidUnload
@@ -114,20 +131,71 @@
 {
     
     // Return the number of rows in the section.
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailCell *cell = (DetailCell*)[tableView dequeueReusableCellWithIdentifier:@"detailCell"];
-  NSArray *tabletext = [NSArray arrayWithObjects:@"More About This Event", @"More About This Artist", @"More About This Venue", @"Add This Event To Facebook", nil];
+  NSArray *tabletext = [NSArray arrayWithObjects:@"More About This Event", @"More About This Artist", @"More About This Venue", nil];
     cell.maintext.text = [tabletext objectAtIndex:indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+   
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
 
     return 45;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    
+    [self.myTableView deselectRowAtIndexPath:[self.myTableView indexPathForSelectedRow] animated:YES];
+   VenueArtistView *venue = [self.storyboard instantiateViewControllerWithIdentifier:@"detail2"];
+    switch (indexPath.row) {
+        case 0:
+            if ([[[extractedData objectForKey:@"Event"] objectForKey:@"description"]length] == 0)
+            {
+                 venue.tableName = [[extractedData objectForKey:@"Event"] objectForKey:@"name"];
+                venue.tableData = @"Sorry, there is no description for this event available at the moment.";
+            }
+            else
+            {
+                NSString *string = [[extractedData objectForKey:@"Event"] objectForKey:@"description"];
+                string = [string stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+                venue.tableData = [[extractedData objectForKey:@"Event"] objectForKey:@"description"];
+                venue.tableName = [[extractedData objectForKey:@"Event"] objectForKey:@"name"];
+            }
+            break;
+        case 1:
+            if ([[extractedData objectForKey:@"Artist"] count] == 0)
+                 {
+                     venue.tableName = [[extractedData objectForKey:@"Event"] objectForKey:@"name"];
+                     venue.tableData = @"Sorry, there is no information on this artist at the moment.";
+                 }
+                 else {
+                 
+                    venue.tableName =  [[[extractedData valueForKey:@"Artist"] valueForKey:@"artistname"] objectAtIndex:0];
+                     venue.tableData = [[[extractedData valueForKey:@"Artist"] valueForKey:@"artistdesc"] objectAtIndex:0];
+
+                 }
+        case 2:
+            if ([[extractedData objectForKey:@"Venue"] count] == 0)
+            {
+                venue.tableName = [[extractedData objectForKey:@"Event"] objectForKey:@"placename"];
+                venue.tableData = @"Sorry, there is no information on this venue at the moment.";
+            }
+            else {
+                
+                venue.tableName =  [[[extractedData valueForKey:@"Venue"] valueForKey:@"venuename"] objectAtIndex:0];
+                venue.tableData = [[[extractedData valueForKey:@"Venue"] valueForKey:@"venuedesc"] objectAtIndex:0];
+            
+            }
+
+        }
+    [self.navigationController pushViewController:venue animated:YES];
+    
 }
 @end
